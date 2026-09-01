@@ -1,0 +1,193 @@
+.listing-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 8px 0 8px;
+    border-bottom: 1px solid #ececec;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+/* ---------- Top ---------- */
+
+.listing-header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:5px;
+}
+
+.listing-title{
+    font-size:2rem;
+    font-weight:700;
+    color:#4b4747;
+    line-height:1.25;
+    margin:0;
+}
+
+/* ---------- Actions ---------- */
+
+.listing-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.action-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:9px 15px;
+
+    background:#757272;
+
+    border:1px solid #dedede;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.25s;
+}
+
+.action-btn:hover{
+
+    background:#f5f5f5;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+/* ---------- Bottom ---------- */
+
+.listing-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    color:#555;
+
+    font-size:.96rem;
+
+}
+
+.rating-group,
+
+.location-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+}
+
+.star-icon{
+
+    color:#ff385c;
+
+}
+
+.location-icon{
+
+    color:#666;
+
+}
+
+.reviews{
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.reviews:hover{
+
+    text-decoration:underline;
+
+}
+
+.dot{
+
+    color:#b5b5b5;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.listing-header{
+
+padding-bottom:18px;
+
+}
+
+.listing-header-top{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.listing-title{
+
+font-size:1.55rem;
+
+}
+
+.listing-actions{
+
+width:100%;
+
+justify-content:flex-start;
+
+}
+
+.action-btn{
+
+flex:1;
+
+justify-content:center;
+
+}
+
+.listing-meta{
+
+font-size:.9rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.listing-title{
+
+font-size:1.35rem;
+
+}
+
+.action-btn{
+
+padding:10px;
+
+font-size:.85rem;
+
+}
+
+}

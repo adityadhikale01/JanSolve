@@ -1,0 +1,188 @@
+.featured-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* ---------------- Header ---------------- */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-tag {
+    display: inline-block;
+
+    padding: .45rem 1rem;
+
+    border-radius: 999px;
+
+    background: #ff385c15;
+
+    color: #ff385c;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+.section-header p {
+    max-width: 650px;
+    margin: 1rem auto 0;
+
+    color: #6b7280;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+}
+
+/* ---------------- Grid ---------------- */
+
+.destinations-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 2rem;
+}
+
+/* ---------------- Card ---------------- */
+
+.destination-card {
+
+    position: relative;
+
+    height: 420px;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: .45s ease;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.destination-card:hover {
+
+    transform: translateY(-12px);
+
+    box-shadow: 0 30px 55px rgba(0,0,0,.18);
+}
+
+.destination-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .7s ease;
+}
+
+.destination-card:hover .destination-image {
+
+    transform: scale(1.12);
+}
+
+/* ---------------- Overlay ---------------- */
+
+.destination-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 1.6rem;
+
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.82)
+    );
+}
+
+/* ---------------- Badge ---------------- */
+
+.destination-badge {
+
+    align-self: flex-start;
+
+    background: rgba(255,255,255,.18);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    padding: .45rem .9rem;
+
+    border-radius: 999px;
+
+    font-size: .8rem;
+
+    font-weight: 600;
+
+    border: 1px solid rgba(255,255,255,.25);
+}
+
+/* ---------------- Bottom ---------------- */
+
+.destination-content h3 {
+
+    color: white;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    margin-bottom: .5rem;
+}
+
+.destination-content p {
+
+    color: rgba(255,255,255,.9);
+
+    font-size: .95rem;
+
+    letter-spacing: .4px;
+}
+@media (max-width:768px){
+
+    .featured-section{
+        padding:4rem 1rem;
+    }
+
+    .section-header h2{
+        font-size:2rem;
+    }
+
+    .section-header p{
+        font-size:.95rem;
+    }
+
+    .destination-card{
+        height:320px;
+    }
+
+    .destination-content h3{
+        font-size:1.6rem;
+    }
+
+}

@@ -1,0 +1,33 @@
+.error-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-page h1 {
+  font-size: 3rem;
+  color: #e63946;
+}
+
+.error-page p {
+  max-width: 500px;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.home-btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.home-btn:hover {
+  background: #1d4ed8;
+}

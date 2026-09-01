@@ -1,0 +1,370 @@
+/* ===========================
+   FILTER BAR
+=========================== */
+.filter-bar-container {
+    width: min(1400px, 95%);
+    margin: 2rem auto;
+}
+
+.filter-form {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    border: 1px solid #edf2f7;
+}
+
+/* ===========================
+   SEARCH
+=========================== */
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 0.75rem 0.8rem;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 50px;
+
+    transition: .3s;
+}
+
+.search-wrapper:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+.search-wrapper svg {
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.search-wrapper input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: .95rem;
+
+    color: #1f2937;
+}
+
+.search-wrapper input::placeholder {
+    color: #9ca3af;
+}
+
+.search-btn {
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: .85rem 1.6rem;
+
+    border-radius: 40px;
+
+    font-size: .95rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.search-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   CATEGORY
+=========================== */
+
+.category-row {
+
+    display: flex;
+
+    gap: .9rem;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    padding-bottom: .2rem;
+}
+
+.category-row::-webkit-scrollbar {
+    display: none;
+}
+
+.category-row input {
+    display: none;
+}
+
+.category {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .5rem;
+
+    padding: .8rem 1.3rem;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    color: #374151;
+
+    transition: .25s;
+
+    font-size: .92rem;
+
+    font-weight: 500;
+}
+
+.category svg {
+
+    color: #2563eb;
+}
+
+.category:hover {
+
+    background: #eff6ff;
+
+    border-color: #2563eb;
+
+    color: #2563eb;
+}
+
+.category-row input:checked + .category {
+
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: white;
+}
+
+.category-row input:checked + .category svg {
+
+    color: white;
+}
+
+/* ===========================
+   FILTERS
+=========================== */
+
+.filter-row {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 1rem;
+}
+
+.filter-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .45rem;
+}
+
+.filter-group label {
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    color: #4b5563;
+}
+
+.filter-group select {
+
+    width: 100%;
+
+    padding: .9rem 1rem;
+
+    border-radius: 14px;
+
+    border: 1px solid #d1d5db;
+
+    outline: none;
+
+    background: white;
+
+    font-size: .92rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.filter-group select:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.filter-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 1rem;
+}
+
+.reset-btn {
+
+    padding: .9rem 1.6rem;
+
+    border-radius: 14px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.reset-btn:hover {
+
+    background: #f3f4f6;
+}
+
+.apply-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .55rem;
+
+    padding: .9rem 1.8rem;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.apply-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:992px){
+
+.filter-row{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.filter-form{
+
+padding:1.25rem;
+
+}
+
+.search-wrapper{
+
+flex-wrap:wrap;
+
+border-radius:20px;
+
+}
+
+.search-btn{
+
+width:100%;
+
+}
+
+.filter-row{
+
+grid-template-columns:1fr;
+
+}
+
+.filter-actions{
+
+flex-direction:column;
+
+}
+
+.reset-btn,
+.apply-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.category{
+
+padding:.75rem 1rem;
+
+font-size:.85rem;
+
+}
+
+}

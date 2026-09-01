@@ -1,0 +1,18 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  padding-top: 72px; /* Height of sticky navbar */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 72px;
+  }
+}

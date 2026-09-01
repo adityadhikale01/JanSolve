@@ -9,7 +9,7 @@ export default function RegisterPage() {
 
   return (
     <>
-    <ErrorBlock errors={actionData?.errors} />
+    <ErrorBlock errors={actionData?.errors} messageToShow={actionData?.message} />
     <div className="register-container">
       <div className="register-card">
         <h1>Create Account</h1>

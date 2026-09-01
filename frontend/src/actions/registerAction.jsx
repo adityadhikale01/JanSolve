@@ -22,6 +22,7 @@ export async function registerAction({ request }) {
   // If the response is not successful, no redirect
   //Status code 400 indicates validation errors, so we handle it separately
   if (response.status === 400) {
+    console.log("Validation errors occurred");
     const errorData = await response.json();
     errorData.succesfulRedirect = false; // Indicate that the redirect should not happen
     return errorData; // Return the validation errors to the component

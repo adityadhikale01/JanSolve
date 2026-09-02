@@ -1,5 +1,5 @@
 import { authRoutes } from "./authRoutes.jsx";
-import { ReportProblemRoutes } from "./ReportProblem.jsx";
+import { ReportProblemRoutes } from "./ReportProblemRoute.jsx";
 export const routes = [
   ...authRoutes, 
   ...ReportProblemRoutes,

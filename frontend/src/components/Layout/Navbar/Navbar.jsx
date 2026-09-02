@@ -272,7 +272,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          to="/listings/new"
+          to="/issues/new"
           onClick={() => setMenuOpen(false)}
         >
           <Plus size={18} />

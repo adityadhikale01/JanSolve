@@ -1,0 +1,165 @@
+.location-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.location-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.location-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-status-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #f3f4f6;
+}
+
+.location-status strong {
+  display: block;
+  font-size: 14px;
+}
+
+.location-status span {
+  display: block;
+  margin-top: 3px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.location-current-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-current-button:hover {
+  background: #f9fafb;
+}
+
+.location-current-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.location-map-wrapper {
+  position: relative;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.location-map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-instruction {
+  position: absolute;
+  z-index: 1000;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 13px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.selected-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border-radius: 11px;
+
+  background: #f9fafb;
+}
+
+.selected-location strong {
+  display: block;
+  font-size: 13px;
+}
+
+.selected-location span {
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.location-error {
+  padding: 11px 13px;
+
+  border-radius: 10px;
+
+  background: #fef2f2;
+
+  color: #991b1b;
+
+  font-size: 13px;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 650px) {
+  .location-picker-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .location-current-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .location-map-wrapper {
+    height: 280px;
+  }
+
+  .map-instruction {
+    max-width: calc(100% - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

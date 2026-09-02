@@ -1,6 +1,6 @@
 
 
-export function ReportProblem() {   
+export  function ReportProblemAction() {   
     return { type: "REPORT_PROBLEM" };
         
 }

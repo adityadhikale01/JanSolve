@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Camera,
   Circle,
@@ -27,18 +27,24 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
   const [facingMode, setFacingMode] = useState("environment");
 
   // ------------------------------------
+  // Stop camera
+  // ------------------------------------
+
+  const stopCamera = useCallback(() => {
+    if (streamRef.current) {
+      streamRef.current
+        .getTracks()
+        .forEach((track) => track.stop());
+
+      streamRef.current = null;
+    }
+  }, []);
+
+  // ------------------------------------
   // Start camera
   // ------------------------------------
 
-  useEffect(() => {
-    startCamera();
-
-    return () => {
-      stopCamera();
-    };
-  }, [facingMode]);
-
-  const startCamera = async () => {
+  const startCamera = useCallback(async () => {
     try {
       setCameraLoading(true);
       setCameraError("");
@@ -86,27 +92,32 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
         setCameraError(
           "No camera was found on this device."
         );
+      } else if (error.name === "NotReadableError") {
+        setCameraError(
+          "Unable to access the camera. Please close other apps using the camera and try again."
+        );
       } else {
         setCameraError(
           "Unable to access the camera. Please check your browser permissions."
         );
       }
     }
-  };
+  }, [facingMode, mode, stopCamera]);
 
-  // ------------------------------------
-  // Stop camera
-  // ------------------------------------
+  useEffect(() => {
+    let cancelled = false;
 
-  const stopCamera = () => {
-    if (streamRef.current) {
-      streamRef.current
-        .getTracks()
-        .forEach((track) => track.stop());
+    queueMicrotask(() => {
+      if (!cancelled) {
+        startCamera();
+      }
+    });
 
-      streamRef.current = null;
-    }
-  };
+    return () => {
+      cancelled = true;
+      stopCamera();
+    };
+  }, [startCamera, stopCamera]);
 
   // ------------------------------------
   // Switch front / rear camera
@@ -178,28 +189,35 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
   const startRecording = () => {
     if (!streamRef.current) return;
 
+    if (!window.MediaRecorder) {
+      setCameraError(
+        "Video recording is not supported by this browser."
+      );
+      return;
+    }
+
     chunksRef.current = [];
 
-    let mimeType = "video/webm";
+    const supportedMimeType = [
+      "video/webm;codecs=vp9",
+      "video/webm;codecs=vp8",
+      "video/webm",
+      "video/mp4",
+    ].find((type) =>
+      MediaRecorder.isTypeSupported(type)
+    );
 
-    if (
-      MediaRecorder.isTypeSupported(
-        "video/webm;codecs=vp9"
-      )
-    ) {
-      mimeType = "video/webm;codecs=vp9";
-    } else if (
-      MediaRecorder.isTypeSupported(
-        "video/webm"
-      )
-    ) {
-      mimeType = "video/webm";
+    if (!supportedMimeType) {
+      setCameraError(
+        "Video recording is not supported by this browser."
+      );
+      return;
     }
 
     const recorder = new MediaRecorder(
       streamRef.current,
       {
-        mimeType,
+        mimeType: supportedMimeType,
       }
     );
 
@@ -215,11 +233,11 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
       const blob = new Blob(
         chunksRef.current,
         {
-          type: mimeType,
+          type: supportedMimeType,
         }
       );
 
-      const extension = mimeType.includes("webm")
+      const extension = supportedMimeType.includes("webm")
         ? "webm"
         : "mp4";
 
@@ -227,7 +245,7 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
         [blob],
         `problem-video-${Date.now()}.${extension}`,
         {
-          type: mimeType,
+          type: supportedMimeType,
         }
       );
 
@@ -287,12 +305,6 @@ function CameraCapture({ mode = "photo", onCapture, onClose }) {
     if (!capturedMedia) return;
 
     onCapture(capturedMedia);
-
-    if (capturedMedia.preview) {
-      URL.revokeObjectURL(
-        capturedMedia.preview
-      );
-    }
 
     setCapturedMedia(null);
     onClose();

@@ -22,7 +22,7 @@ import { logoutRequest } from "../../../utils/logoutRequest.jsx";
 
 export default function Navbar() {
   const { currentUser, logout } = useAuth();
-  console.log("Current User:", currentUser); // Log the current user for debugging
+  
   const [showDropdown, setShowDropdown] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -176,7 +176,7 @@ export default function Navbar() {
         </NavLink>
 
         <NavLink
-          to="/myreports"
+          to="/my-reports"
           onClick={() => setMenuOpen(false)}
         >
           <FileText size={18} />
@@ -256,7 +256,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          to="/listings"
+          to="/my-reports"
           onClick={() => setMenuOpen(false)}
         >
           <FileText size={18} />

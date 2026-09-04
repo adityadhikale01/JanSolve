@@ -9,6 +9,14 @@ export const uploadMedia = async (file, onProgress) => {
     throw new Error("No file selected.");
   }
 
+  if (!CLOUD_NAME || !UPLOAD_PRESET) {
+    throw new Error("Cloudinary upload is not configured.");
+  }
+
+  const mediaType = file.type.startsWith("video/")
+    ? "video"
+    : "image";
+
   const formData = new FormData();
 
   formData.append("file", file);
@@ -34,11 +42,13 @@ export const uploadMedia = async (file, onProgress) => {
         try {
           const data = JSON.parse(xhr.responseText);
 
+          if (!data.secure_url || !data.public_id) {
+            reject(new Error("Invalid Cloudinary response."));
+            return;
+          }
+
           resolve({
-            type:
-              data.resource_type === "video"
-                ? "video"
-                : "image",
+            type: mediaType,
 
             url: data.secure_url,
 

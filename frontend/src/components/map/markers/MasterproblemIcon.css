@@ -1,0 +1,39 @@
+.master-problem-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.master-problem-marker {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #457985;
+
+  border: 3px solid #ffffff;
+
+  border-radius: 50% 50% 50% 0;
+
+  transform: rotate(-45deg);
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.master-problem-marker span {
+  transform: rotate(45deg);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.master-problem-marker.mine {
+  background: #e87832;
+}

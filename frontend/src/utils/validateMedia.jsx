@@ -21,8 +21,10 @@ export const validateMedia = (file) => {
     };
   }
 
-  if (file.type.startsWith("image/")) {
-    if (!ALLOWED_IMAGES.includes(file.type)) {
+  const mimeType = file.type.split(";")[0].trim();
+
+  if (mimeType.startsWith("image/")) {
+    if (!ALLOWED_IMAGES.includes(mimeType)) {
       return {
         valid: false,
         message: "Only JPG, PNG and WebP images are allowed.",
@@ -39,8 +41,8 @@ export const validateMedia = (file) => {
     return { valid: true };
   }
 
-  if (file.type.startsWith("video/")) {
-    if (!ALLOWED_VIDEOS.includes(file.type)) {
+  if (mimeType.startsWith("video/")) {
+    if (!ALLOWED_VIDEOS.includes(mimeType)) {
       return {
         valid: false,
         message: "Only MP4, WebM and MOV videos are allowed.",

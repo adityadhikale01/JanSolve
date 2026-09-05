@@ -1,0 +1,88 @@
+.amenities-section {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 24px;
+}
+
+.section-heading{
+    margin-bottom:2rem;
+}
+
+.section-heading h2{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:.5rem;
+}
+
+.section-heading p{
+    color:#6b7280;
+    font-size:.98rem;
+}
+
+.amenities-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.amenity-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    padding:18px;
+
+    border:1px solid #ececec;
+    border-radius:18px;
+
+    transition:.25s ease;
+    background:#fff;
+}
+
+.amenity-card:hover{
+    transform:translateY(-4px);
+    border-color:#111827;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.amenity-icon{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:#f3f4f6;
+    color:#111827;
+
+    flex-shrink:0;
+}
+
+.amenity-icon svg{
+    font-size:1.5rem;
+}
+
+.amenity-card span{
+    font-size:1rem;
+    font-weight:600;
+    color:#374151;
+}
+
+@media (max-width:768px){
+
+    .amenities-section{
+        padding:2rem;
+        border-radius:20px;
+    }
+
+    .amenities-grid{
+        grid-template-columns:1fr;
+    }
+
+}

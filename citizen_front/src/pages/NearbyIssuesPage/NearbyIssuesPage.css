@@ -1,0 +1,1096 @@
+/* =========================================================
+   JANSLove / NEARBY ISSUES
+   ALL CLASSES ARE PAGE-SCOPED WITH n-issues-
+========================================================= */
+
+
+/* =========================================================
+   PAGE ROOT
+========================================================= */
+
+.n-issues-page {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 28px 32px 40px;
+
+  background: #f7f8fb;
+
+  color: #172033;
+
+  overflow-x: hidden;
+}
+
+.n-issues-page *,
+.n-issues-page *::before,
+.n-issues-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.n-issues-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  width: 100%;
+
+  margin-bottom: 22px;
+}
+
+.n-issues-header-content {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.n-issues-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 6px;
+
+  color: #0c7f82;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.n-issues-title {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: #182033;
+
+  font-size: 32px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+.n-issues-subtitle {
+  max-width: 690px;
+
+  margin: 9px 0 0;
+
+  color: #70798a;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+========================================================= */
+
+.n-issues-summary {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  min-width: 270px;
+
+  padding: 14px 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7eaf0;
+
+  border-radius: 13px;
+
+  box-shadow: 0 3px 12px rgba(20, 30, 50, 0.05);
+}
+
+.n-issues-summary-item {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  gap: 2px;
+}
+
+.n-issues-summary-item strong {
+  color: #20293a;
+
+  font-size: 18px;
+  line-height: 1.2;
+
+  font-weight: 750;
+}
+
+.n-issues-summary-item span {
+  color: #858d9c;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 10px;
+}
+
+.n-issues-summary-divider {
+  width: 1px;
+  height: 34px;
+
+  margin: 0 16px;
+
+  background: #e9ecf0;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.n-issues-toolbar {
+  display: flex;
+
+  width: 100%;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.n-issues-search {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  flex: 1;
+
+  height: 43px;
+
+  padding: 0 13px;
+
+  gap: 9px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5ea;
+
+  border-radius: 10px;
+
+  color: #7d8796;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.n-issues-search:focus-within {
+  border-color: #0c7f82;
+
+  box-shadow: 0 0 0 3px rgba(12, 127, 130, 0.08);
+}
+
+.n-issues-search input {
+  width: 100%;
+  min-width: 0;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #1e293b;
+
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.n-issues-search input::placeholder {
+  color: #9ba3af;
+}
+
+.n-issues-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #8d96a5;
+
+  cursor: pointer;
+}
+
+.n-issues-filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  height: 43px;
+
+  padding: 0 15px;
+
+  gap: 7px;
+
+  border: 1px solid #e1e5ea;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #394355;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.n-issues-filter-button:hover,
+.n-issues-filter-button--active {
+  border-color: #0c7f82;
+
+  color: #0c7f82;
+}
+
+
+/* =========================================================
+   CATEGORY BAR
+========================================================= */
+
+.n-issues-category-bar {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 13px;
+
+  padding: 10px 13px;
+
+  margin-bottom: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e8ed;
+
+  border-radius: 10px;
+}
+
+.n-issues-category-label {
+  flex-shrink: 0;
+
+  color: #687283;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.n-issues-category-list {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.n-issues-category-button {
+  padding: 6px 11px;
+
+  border: 1px solid #e0e4e9;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #697386;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+.n-issues-category-button:hover {
+  border-color: #0c7f82;
+}
+
+.n-issues-category-button--active {
+  border-color: #0c7f82;
+
+  background: #0c7f82;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN WORKSPACE
+========================================================= */
+
+.n-issues-workspace {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 350px;
+
+  width: 100%;
+
+  height: 590px;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e0e5eb;
+
+  border-radius: 15px;
+
+  box-shadow: 0 4px 16px rgba(20, 30, 50, 0.05);
+}
+
+
+/* =========================================================
+   MAP SECTION
+========================================================= */
+
+.n-issues-map-section {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  background: #e9eef0;
+}
+
+.n-issues-map {
+  width: 100% !important;
+  height: 100% !important;
+
+  min-height: 0 !important;
+}
+
+
+/* =========================================================
+   CUSTOM MAP MARKER
+========================================================= */
+
+.n-issues-marker-wrapper {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px !important;
+  height: 48px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+}
+
+.n-issues-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 50%;
+
+  background: #0d7f82;
+
+  border: 3px solid #ffffff;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.24),
+    0 0 0 2px rgba(13, 127, 130, 0.2);
+}
+
+.n-issues-marker--mine {
+  background: #ef8b2c;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.24),
+    0 0 0 2px rgba(239, 139, 44, 0.25);
+}
+
+.n-issues-marker-count {
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   MAP LEGEND
+========================================================= */
+
+.n-issues-map-legend {
+  position: absolute;
+
+  z-index: 500;
+
+  left: 14px;
+  bottom: 14px;
+
+  padding: 11px 13px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #dfe4e9;
+
+  border-radius: 9px;
+
+  box-shadow: 0 4px 14px rgba(20, 30, 50, 0.12);
+}
+
+.n-issues-map-legend-title {
+  margin-bottom: 7px;
+
+  color: #394355;
+
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.n-issues-map-legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 5px;
+
+  color: #687283;
+
+  font-size: 9px;
+}
+
+.n-issues-legend-dot {
+  width: 10px;
+  height: 10px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.n-issues-legend-dot--normal {
+  background: #0d7f82;
+}
+
+.n-issues-legend-dot--mine {
+  background: #ef8b2c;
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.n-issues-popup {
+  width: 255px;
+
+  font-family: Arial, sans-serif;
+}
+
+.n-issues-popup-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+
+  margin-bottom: 7px;
+}
+
+.n-issues-popup-category {
+  color: #0d7f82;
+
+  font-size: 9px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+}
+
+.n-issues-popup-mine {
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  background: #fff1df;
+
+  color: #c46e13;
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.n-issues-popup-title {
+  margin: 0 0 6px;
+
+  color: #1d2738;
+
+  font-size: 14px;
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.n-issues-popup-description {
+  margin: 0 0 9px;
+
+  color: #70798a;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.n-issues-popup-location {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 5px;
+
+  color: #697386;
+
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.n-issues-popup-location svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.n-issues-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 9px;
+  padding-top: 8px;
+
+  border-top: 1px solid #edf0f3;
+}
+
+.n-issues-popup-reports {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: #70798a;
+
+  font-size: 10px;
+}
+
+.n-issues-popup-personal {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 8px;
+  padding: 6px 7px;
+
+  border-radius: 6px;
+
+  background: #fff7ec;
+
+  color: #c46e13;
+
+  font-size: 9px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.n-issues-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 0;
+
+  background: #ffffff;
+
+  border-left: 1px solid #e4e8ed;
+}
+
+.n-issues-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+
+  padding: 14px 15px;
+
+  border-bottom: 1px solid #edf0f3;
+}
+
+.n-issues-sidebar-header h2 {
+  margin: 0;
+
+  color: #1e2738;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.n-issues-sidebar-header p {
+  margin: 3px 0 0;
+
+  color: #929aa7;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 9px;
+}
+
+.n-issues-sidebar-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 7px;
+
+  background: #edf7f7;
+
+  color: #0d7f82;
+
+  font-size: 11px;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   PROBLEM LIST
+========================================================= */
+
+.n-issues-problem-list {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 7px;
+}
+
+.n-issues-problem-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.n-issues-problem-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.n-issues-problem-list::-webkit-scrollbar-thumb {
+  background: #d6dce2;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   PROBLEM CARD
+========================================================= */
+
+.n-issues-problem-card {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  padding: 12px 30px 11px 12px;
+
+  margin: 0 0 6px;
+
+  border: 1px solid #e7eaee;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.n-issues-problem-card:hover {
+  border-color: #a9d4d5;
+
+  box-shadow: 0 3px 10px rgba(20, 30, 50, 0.06);
+}
+
+.n-issues-problem-card--selected {
+  border-color: #0d7f82;
+
+  box-shadow: 0 0 0 2px rgba(13, 127, 130, 0.08);
+}
+
+.n-issues-problem-top {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  min-width: 0;
+
+  margin-bottom: 6px;
+}
+
+.n-issues-problem-category {
+  color: #0d7f82;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+}
+
+.n-issues-you-badge {
+  padding: 3px 5px;
+
+  border-radius: 4px;
+
+  background: #fff1df;
+
+  color: #c46e13;
+
+  font-size: 7px;
+  font-weight: 750;
+}
+
+.n-issues-problem-title {
+  margin: 0 0 7px;
+
+  color: #202939;
+
+  font-size: 12px;
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+.n-issues-problem-location {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 5px;
+
+  margin-bottom: 8px;
+
+  color: #7c8594;
+
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.n-issues-problem-location svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+}
+
+.n-issues-problem-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 7px;
+
+  border-top: 1px solid #f0f2f4;
+}
+
+.n-issues-report-count {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  color: #7d8694;
+
+  font-size: 9px;
+}
+
+.n-issues-report-count strong {
+  color: #354052;
+
+  font-size: 10px;
+}
+
+.n-issues-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 6px;
+
+  border-radius: 5px;
+
+  font-size: 7px;
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+.n-issues-status--submitted {
+  background: #eef4ff;
+
+  color: #4772b6;
+}
+
+.n-issues-status--under_review {
+  background: #fff7df;
+
+  color: #9d7807;
+}
+
+.n-issues-status--in_progress {
+  background: #e8f7f5;
+
+  color: #08756f;
+}
+
+.n-issues-status--resolved {
+  background: #eaf7ed;
+
+  color: #31834a;
+}
+
+.n-issues-urgency {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 6px;
+
+  color: #8a7040;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.n-issues-card-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 9px;
+
+  transform: translateY(-50%);
+
+  color: #a8afb9;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.n-issues-empty {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  padding: 30px;
+
+  text-align: center;
+
+  color: #9ba3ae;
+}
+
+.n-issues-empty h3 {
+  margin: 10px 0 4px;
+
+  color: #515c6c;
+
+  font-size: 13px;
+}
+
+.n-issues-empty p {
+  max-width: 200px;
+
+  margin: 0;
+
+  color: #8c95a2;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEAFLET
+========================================================= */
+
+.n-issues-page .leaflet-container {
+  font-family: Arial, sans-serif;
+
+  z-index: 1;
+}
+
+.n-issues-page .leaflet-control-container {
+  font-family: Arial, sans-serif;
+}
+
+.n-issues-page .leaflet-popup-content-wrapper {
+  border-radius: 9px;
+}
+
+.n-issues-page .leaflet-popup-content {
+  margin: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+  .n-issues-page {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .n-issues-workspace {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+
+  .n-issues-summary {
+    min-width: 245px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .n-issues-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .n-issues-summary {
+    width: 100%;
+  }
+
+  .n-issues-workspace {
+    grid-template-columns: 1fr;
+
+    height: auto;
+  }
+
+  .n-issues-map-section {
+    height: 500px;
+  }
+
+  .n-issues-sidebar {
+    height: 480px;
+
+    border-top: 1px solid #e4e8ed;
+    border-left: 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .n-issues-page {
+    padding: 16px;
+  }
+
+  .n-issues-title {
+    font-size: 27px;
+  }
+
+  .n-issues-subtitle {
+    font-size: 12px;
+  }
+
+  .n-issues-toolbar {
+    flex-direction: column;
+  }
+
+  .n-issues-filter-button {
+    width: 100%;
+  }
+
+  .n-issues-category-bar {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .n-issues-map-section {
+    height: 430px;
+  }
+
+  .n-issues-sidebar {
+    height: 450px;
+  }
+
+  .n-issues-summary {
+    min-width: 0;
+  }
+}

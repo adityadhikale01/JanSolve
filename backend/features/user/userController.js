@@ -116,7 +116,7 @@ export async function refreshAccessToken(req, res) {
 }
 
 export  async function registerUser (req, res) {
-  
+    console.log("In Register Route");
     const { name, email, password } = req.body;
     console.log(req.body);
     const existingUser =await User.findOne({ email });

@@ -107,9 +107,11 @@ const reportSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: [
+     enum: [
         "submitted",
         "under_review",
+        "information_requested",
+        "verified",
         "assigned",
         "in_progress",
         "resolved",
@@ -117,28 +119,88 @@ const reportSchema = new mongoose.Schema(
       ],
       default: "submitted",
     },
+    
+    verification: {
+        verifiedBy: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          default: null,
+        },
 
+        verifiedAt: {
+          type: Date,
+          default: null,
+        },
+
+        adminNote: {
+          type: String,
+          trim: true,
+          maxlength: 1000,
+          default: null,
+        },
+
+        rejectionReason: {
+          type: String,
+          trim: true,
+          maxlength: 1000,
+          default: null,
+        },
+      },
     // -------------------------
     // AI processing
     // -------------------------
 
     classification: {
+      category: {
+        type: String,
+        trim: true,
+      },
+
       domain: {
         type: String,
+        trim: true,
       },
 
       subdomain: {
         type: String,
+        trim: true,
       },
 
       problemType: {
         type: String,
+        trim: true,
       },
 
       confidence: {
         type: Number,
         min: 0,
         max: 1,
+      },
+
+      source: {
+        type: String,
+        enum: [
+          "ai",
+          "admin",
+          "manual",
+        ],
+        default: "ai",
+      },
+
+      status: {
+        type: String,
+        enum: [
+          "pending",
+          "ai_suggested",
+          "approved",
+          "rejected",
+        ],
+        default: "pending",
+      },
+
+      classifiedAt: {
+        type: Date,
+        default: null,
       },
     },
 
@@ -148,7 +210,6 @@ const reportSchema = new mongoose.Schema(
       default: null,
     },
   },
-
   {
     timestamps: true,
   }

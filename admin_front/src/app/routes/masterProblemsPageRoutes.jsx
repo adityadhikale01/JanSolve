@@ -1,6 +1,6 @@
-import MasterProblemsPage from "../../pages/MasterProblemsPage/MasterProblemPage.jsx";
+import MasterProblemsPage from "../../pages/MasterProblemsPage/MasterProblemsPage.jsx";
 import ProtectedRoute from "../../auth/ProtectedRoute.jsx";
-
+import { masterProblemsLoader } from "../../loaders/masterProblemsLoader.jsx";
 export const MasterProblemsPageRoutes = [
  
   {
@@ -10,6 +10,6 @@ export const MasterProblemsPageRoutes = [
         <MasterProblemsPage />
       </ProtectedRoute>
     ),
-  
+    loader: masterProblemsLoader,
   },
 ];

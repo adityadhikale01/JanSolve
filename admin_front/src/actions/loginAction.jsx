@@ -17,6 +17,7 @@ export async function loginAction({ request }) {
       body: JSON.stringify(loginData),
       credentials: "include", // Include credentials for cookies
     });
+    console.log("Response Status:", response.status); // Log the response status for debugging
     
     const data = await response.json();
 

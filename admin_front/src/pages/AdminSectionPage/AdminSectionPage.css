@@ -1,0 +1,51 @@
+.admin-section-page {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.admin-section-header {
+  margin-bottom: 28px;
+}
+
+.admin-section-eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-section-header h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.admin-section-header p {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.admin-section-panel {
+  padding: 24px;
+  border: 1px solid #e7e9ee;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.admin-section-panel h2 {
+  margin: 0 0 8px;
+  color: #293142;
+  font-size: 18px;
+}
+
+.admin-section-panel p {
+  margin: 0;
+  color: #667085;
+}

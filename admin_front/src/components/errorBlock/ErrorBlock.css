@@ -1,0 +1,75 @@
+/* General Message */
+
+.message-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 5px solid #f59e0b;
+
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+
+    color: #92400e;
+    animation: fadeIn .25s ease;
+}
+
+.message-block p {
+    margin: 0;
+    font-weight: 500;
+}
+
+
+/* Validation Errors */
+
+.error-block {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 5px solid #ef4444;
+
+    padding: 18px;
+    border-radius: 12px;
+
+    color: #991b1b;
+    animation: fadeIn .25s ease;
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.error-header h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.error-block ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.error-block li {
+    margin: 8px 0;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

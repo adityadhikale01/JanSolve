@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import {
     getUser,
     saveUser,
@@ -6,33 +6,15 @@ import {
     getAccessToken,
     clearAuth
 } from "./authStorage";
-export const AuthContext = createContext(null);
+import { AuthContext } from "./authContextValue.jsx";
 
 export function AuthProvider({ children }) {
  
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(() => getUser());
 
-    const [accessToken, setAccessToken] = useState(null);
+    const [accessToken, setAccessToken] = useState(() => getAccessToken());
 
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        console.log("AuthProvider mounted");
-        const storedUser = getUser();
-
-        const storedToken = getAccessToken();
-
-        if (storedUser && storedToken) {
-
-            setCurrentUser(storedUser);
-
-            setAccessToken(storedToken);
-
-        }
-
-        setLoading(false);
-
-    }, []);
+    const loading = false;
 
     const login = useCallback(function login(user, token) {
      

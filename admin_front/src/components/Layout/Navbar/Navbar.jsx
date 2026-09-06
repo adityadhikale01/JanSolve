@@ -11,7 +11,6 @@ import {
   Settings,
   LogOut,
   LogIn,
-  UserPlus,
   Menu,
   X,
   ChevronLeft,

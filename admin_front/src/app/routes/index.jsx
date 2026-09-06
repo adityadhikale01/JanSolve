@@ -1,7 +1,10 @@
-
+import { Navigate } from "react-router-dom";
 import { authRoutes } from "./authRoutes.jsx";
 import ProtectedRoute from "../../auth/ProtectedRoute.jsx";
 import AdminSectionPage from "../../pages/AdminSectionPage/AdminSectionPage.jsx";
+import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
+import { ReportsPageRoutes } from "./ReportsPageRoutes.jsx";
+import { MasterProblemsPageRoutes } from "./masterProblemsPageRoutes.jsx";
 
 const adminRoutes = [
   // "dashboard",
@@ -20,19 +23,23 @@ const adminRoutes = [
     </ProtectedRoute>
   ),
 }));
-import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
-import { ReportsPageRoutes } from "./ReportsPageRoutes.jsx";
-import { MasterProblemsPageRoutes } from "./masterProblemsPageRoutes.jsx";
 export const routes = [
   {
     index: true,
-    element: <Dashboard/>,
-    path: "dashboard", 
+    element: <Navigate to="/dashboard" replace />,
+  },
+  {
+    path: "dashboard",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
   ...authRoutes,
   ...ReportsPageRoutes,
-  ...MasterProblemsPageRoutes
- ,
+  ...MasterProblemsPageRoutes,
+  ...adminRoutes,
   {
     path: "*",
     element: <div>404</div>,

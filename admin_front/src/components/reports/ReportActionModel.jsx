@@ -49,10 +49,6 @@ export default function ReportActionModal({
   const config = ACTION_CONFIG[action];
 
   useEffect(() => {
-    setValue("");
-  }, [action, report?._id]);
-
-  useEffect(() => {
     function handleEscape(event) {
       if (event.key === "Escape" && !loading) {
         onClose();

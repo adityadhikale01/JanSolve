@@ -2078,7 +2078,7 @@
 
 }
 
-//Next after the new code snippet, you can add more styles or media queries as needed for your dashboard.
+/* Next after the new code snippet, you can add more styles or media queries as needed for your dashboard. */
 /* =========================================================
    MAHARASHTRA MAP
 ========================================================= */
@@ -2535,7 +2535,7 @@
 
 }
 
-//Admin Attention 
+/* Admin Attention */
 .dashboard-attention-heading {
   min-height: 30px;
 
@@ -2555,7 +2555,7 @@
   background: transparent;
 }
 
-//Ai Intellegence
+/* AI Intelligence */
 .dashboard-ai-metric > svg {
   color: #6a9a93;
 
